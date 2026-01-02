@@ -17,7 +17,7 @@
 ||||#12 Jenkins: Jenkins files aanmaken|Fedor|
 ||||#13 Jenkins: |Fedor|
 
-## 🔄 Workflow
+## 🔄 Werkstrategie
 
 - Nieuwe taak? Voeg een issue toe en zet het in "To Do".
 - Bezig? Verplaats naar "In Progress".
