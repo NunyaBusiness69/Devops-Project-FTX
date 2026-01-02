@@ -12,7 +12,15 @@
 ||||#7 Docker: compose.yml files aanmaken|Thomas|
 ||||#8 Docker: Volumes definiëren voor data-persistentie|Thomas|
 ||||#9 Ansible: Aanmaken playbooks en docker-container + testen|Xander en Thomas|
-||||#10 Ansible: back-up container aanmaken|Thomas|
+||||#10 Ansible: Back-up container aanmaken|Thomas|
 ||||#11 Terraform: Monitoring toevoegen (Cloudwatch)|Xander|
 ||||#12 Jenkins: Jenkins files aanmaken|Fedor|
 ||||#13 Jenkins: |Fedor|
+
+## 🔄 Workflow
+
+- Nieuwe taak? Voeg een issue toe en zet het in "To Do".
+- Bezig? Verplaats naar "In Progress".
+- Klaar voor review? Zet in "Review".
+- Afgerond? Verplaats naar "Done".
+- Test alles wat je kan testen na het afronden van je taak.
