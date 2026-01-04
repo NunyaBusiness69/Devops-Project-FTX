@@ -1,5 +1,4 @@
-# Devops-Project-FTX
-## Minecraft Server – DevOps Project
+# Minecraft Server – DevOps Project
 
 Dit project beschrijft de opzet van een Minecraft server in de AWS-cloud, gerealiseerd met behulp van DevOps-tools en -methodieken. Het doel is om infrastructuur, configuratie en applicatiebeheer zoveel mogelijk te automatiseren.
 
