@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  become: true
+
+  tasks:
+    - name: Stop Minecraft container
+      community.docker.docker_container:
+        name: minecraft
+        state: stopped
