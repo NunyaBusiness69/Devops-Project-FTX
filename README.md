@@ -19,15 +19,15 @@ AWS Systems Manager (SSM): beheer zonder SSH
 ## Repository structuur
 .
 
-├── ansible/                    Ansible playbooks
+├── ansible/
 
-├── docker/                     Docker gerelateerde bestanden
+├── docker/
 
-├── terraform/                  Terraform infrastructuurcode
+├── terraform/
 
-├── jenkins/                    Jenkins pipelines en configuratie
+├── jenkins/
 
-└── notities en kanban/         Kanbanbord en projectplanning
+└── notities en kanban/
 
 ## Architectuur
 
