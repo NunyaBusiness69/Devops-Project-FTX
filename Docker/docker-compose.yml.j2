@@ -1,0 +1,42 @@
+version: "3.8"
+
+volumes:
+  minecraft_data:
+  minecraft_backups:
+
+services:
+  minecraft:
+    image: {{ minecraft_image }}
+    container_name: {{ minecraft_server_name }}
+    ports:
+      - "{{ minecraft_port }}:25565"
+    environment:
+      EULA: "TRUE"
+      TYPE: "{{ minecraft_type }}"
+      VERSION: "{{ minecraft_version }}"
+      MEMORY: "{{ minecraft_memory }}"
+      MAX_PLAYERS: "{{ max_players }}"
+      MOTD: "{{ motd }}"
+      ENABLE_RCON: "true"
+      RCON_PORT: {{ rcon_port }}
+      RCON_PASSWORD: "{{ rcon_password }}"
+    volumes:
+      - minecraft_data:/data
+    restart: unless-stopped
+
+  backup:
+    image: itzg/mc-backup
+    container_name: minecraft-backup
+    depends_on:
+      - minecraft
+    environment:
+      BACKUP_INTERVAL: "{{ backup_interval }}"
+      RCON_HOST: minecraft
+      RCON_PORT: {{ rcon_port }}
+      RCON_PASSWORD: "{{ rcon_password }}"
+      BACKUP_DIR: /backups
+      KEEP_BACKUPS: {{ keep_backups }}
+    volumes:
+      - minecraft_data:/data:ro
+      - minecraft_backups:/backups
+    restart: unless-stopped
