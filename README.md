@@ -31,7 +31,7 @@ AWS Systems Manager (SSM): beheer zonder SSH
 
 ## Architectuur
 
-De infrastructuur wordt opgezet met Terraform in AWS. Een EC2-instance draait Docker, waarin de Minecraft server als container wordt uitgevoerd. Ansible wordt gebruikt om Docker te installeren en de container te starten, stoppen en herstarten. Jenkins automatiseert dit proces via een CI/CD-pipeline. Monitoring van de instance gebeurt via CloudWatch. Toegang tot de server verloopt via AWS SSM, zonder gebruik van SSH.
+De infrastructuur wordt opgezet met Terraform in AWS. Een EC2-instance draait Docker, waarin de Minecraft server als container wordt uitgevoerd. Ansible wordt gebruikt om Docker te installeren en de container te starten, stoppen en herstarten. Jenkins automatiseert dit proces via een CI/CD-pipeline. Monitoring van de instance gebeurt via CloudWatch. Toegang tot de server verloopt via AWS SSM.
 
 ## Doel van het project
 
