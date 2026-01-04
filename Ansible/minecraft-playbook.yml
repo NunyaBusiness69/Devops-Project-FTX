@@ -28,21 +28,25 @@
          groups: docker 
          append: yes 
     
-    - name: Install Docker SDK for
-    Python
+    - name: Install Docker SDK for Python
       pip: 
       name: docker 
       
-      - name: Pull Minecraft Docker image community.docker.docker_image: name: itzg/minecraft-server source: pull - name: Run Minecraft container
+    - name: Pull Minecraft Docker image 
+        community.docker.docker_image: 
+         name: itzg/minecraft-server 
+         source: pull 
+      
+    - name: Run Minecraft container
       community.docker.docker_container:
-        name: minecraft 
-        image: itzg/minecraft-server 
-        state: started 
-        restart_policy: unless-stopped 
-        ports: - "25565:25565" 
-        env: 
-        EULA: "TRUE" 
-        VERSION: "1.20.1" 
-        MOTD: "Welkom op mijn server" 
-        MAX_PLAYERS: "10" 
-        MEMORY: "512M"
+         name: minecraft 
+         image: itzg/minecraft-server 
+         state: started 
+         restart_policy: unless-stopped 
+         ports: - "25565:25565" 
+         env: 
+         EULA: "TRUE" 
+         VERSION: "1.20.1" 
+         MOTD: "Welkom op mijn server" 
+         MAX_PLAYERS: "10" 
+         MEMORY: "512M"
