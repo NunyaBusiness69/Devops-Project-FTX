@@ -1,0 +1,33 @@
+---
+- name: Install Docker on Amazon Linux 2
+  hosts: localhost
+  become: true
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+
+  tasks:
+    - name: Enable Docker via amazon-linux-extras
+      command: amazon-linux-extras enable docker
+      register: result
+      changed_when: "'enabled' in result.stdout"
+
+    - name: Install Docker
+      yum:
+        name: docker
+        state: present
+
+    - name: Start and enable Docker
+      systemd:
+        name: docker
+        state: started
+        enabled: yes
+
+    - name: Add ssm-user to docker group
+      user:
+        name: ssm-user
+        groups: docker
+        append: yes
+
+    - name: Install Docker SDK for Python
+      pip:
+        name: docker
