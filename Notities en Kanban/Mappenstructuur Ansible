@@ -1,4 +1,4 @@
-minecraft-server/
+minecraft-ansible/
 ├── inventories
 │   └── production
 │       ├── group_vars
