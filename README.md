@@ -17,25 +17,20 @@ AWS CloudWatch: monitoring
 AWS Systems Manager (SSM): beheer zonder SSH
 
 ## Repository structuur
-.
-
-├── minecraft-ansible/
-
-    ├── inventories
-        └── production
-            ├── group_vars
-            └── hosts.ini   
-    ├── playbooks
-    └── roles
-        └── minecraft
-            ├── tasks    
-            └── templates
-
-├── terraform/
-
-├── jenkins/
-
-└── notities en kanban/
+    .
+    ├── minecraft-ansible/
+        ├── inventories
+            └── production
+                ├── group_vars
+                └── hosts.ini   
+        ├── playbooks
+        └── roles
+            └── minecraft
+                ├── tasks    
+                └── templates
+    ├── terraform/
+    ├── jenkins/
+    └── notities en kanban/
 
 De structuur van de map "minecraft-ansible" is overgenomen vanuit onze EC2-instance. Dit betekent dat alles 
 ## Projectarchitectuur
