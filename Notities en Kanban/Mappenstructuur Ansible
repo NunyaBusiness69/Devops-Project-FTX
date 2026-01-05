@@ -1,0 +1,17 @@
+├── inventories
+│   └── production
+│       ├── group_vars
+│       │   └── minecraft.yml
+│       └── hosts.ini
+├── playbooks
+│   ├── install-docker.yml
+│   ├── minecraft.yml  
+│   ├── minecraft-start.yml
+│   ├── minecraft-stop.yml
+│   └── minecraft-restart.yml
+└── roles
+    └── minecraft
+        ├── tasks
+        │   └── main.yml
+        └── templates
+            └── docker-compose.yml.j2
