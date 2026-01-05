@@ -6,7 +6,7 @@ Dit project beschrijft de opzet van een Minecraft server in de AWS-cloud, gereal
 
 - AWS Cloudshell
 
-- Een Amazon linux EC2 instantie (t3.micro)
+- Amazon Linux EC2  (t3.micro)
 
 - Git
 
