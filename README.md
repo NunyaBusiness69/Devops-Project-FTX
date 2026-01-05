@@ -19,9 +19,7 @@ AWS Systems Manager (SSM): beheer zonder SSH
 ## Repository structuur
 .
 
-├── ansible/
-
-├── docker/
+├── minecraft-ansible/
 
 ├── terraform/
 
@@ -29,10 +27,11 @@ AWS Systems Manager (SSM): beheer zonder SSH
 
 └── notities en kanban/
 
-## Architectuur
+De structuur van de map "minecraft-ansible" is overgenomen vanuit onze EC2-instance. Dit betekent dat alles 
+## Projectarchitectuur
 
-De infrastructuur wordt opgezet met Terraform in AWS. Een EC2-instance draait Docker, waarin de Minecraft server als container wordt uitgevoerd. Ansible wordt gebruikt om Docker te installeren en de container te starten, stoppen en herstarten. Jenkins automatiseert dit proces via een CI/CD-pipeline. Monitoring van de instance gebeurt via CloudWatch. Toegang tot de server verloopt via AWS SSM.
+De infrastructuur wordt opgezet met Terraform in AWS. Een EC2-instance draait Docker, waarin de Minecraft server als container wordt uitgevoerd. Ansible wordt gebruikt om Docker te installeren en de container te starten, stoppen en herstarten. Jenkins automatiseert dit proces via een pipeline. Monitoring van de instance gebeurt via AWS CloudWatch. Toegang tot de server verloopt via AWS SSM.
 
 ## Doel van het project
 
-Dit project is onderdeel van een groepsopdracht en heeft als doel het toepassen van DevOps-principes in een realistische cloudomgeving, met nadruk op automatisering, herhaalbaarheid en beheerbaarheid.
+Dit project is onderdeel van onze groepsopdracht voor het vak Devops en heeft als doel het toepassen van de geleerde vaardigheden in een cloudomgeving, met in het bijzonder aandacht op automatisering, herhaalbaarheid en beheerbaarheid.
