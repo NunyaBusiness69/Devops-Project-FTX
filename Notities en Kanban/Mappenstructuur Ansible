@@ -1,3 +1,4 @@
+minecraft-server/
 ├── inventories
 │   └── production
 │       ├── group_vars
