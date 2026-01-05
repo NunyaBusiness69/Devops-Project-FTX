@@ -22,21 +22,13 @@ AWS Systems Manager (SSM): beheer zonder SSH
 ├── minecraft-ansible/
 
     ├── inventories
-    
         └── production
-        
             ├── group_vars
-            
-            └── hosts.ini
-            
+            └── hosts.ini   
     ├── playbooks
-    
     └── roles
-    
         └── minecraft
-        
-            ├── tasks
-            
+            ├── tasks    
             └── templates
 
 ├── terraform/
