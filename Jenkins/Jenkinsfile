@@ -1,1 +1,52 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Enable Terraform Files') {
+            steps {
+                sh '''
+                    echo "Terraform bestanden inschakelen"
+
+                    # main.tf inschakelen
+                    if [ -f terraform/main.tf.disabled ]; then
+                        mv terraform/main.tf.disabled terraform/main.tf
+                    fi
+
+                    # cloudwatch.tf inschakelen
+                    if [ -f terraform/cloudwatch.tf.disabled ]; then
+                        mv terraform/cloudwatch.tf.disabled terraform/cloudwatch.tf
+                    fi
+                '''
+            }
+        }
+
+        stage('Run Terraform') {
+            steps {
+                sh '''
+                    cd terraform
+                    terraform init
+                    terraform plan
+                '''
+            }
+        }
+
+        stage('Disable Terraform Files') {
+            steps {
+                sh '''
+                    echo "Terraform bestanden uitschakelen"
+
+                    # main.tf uitschakelen
+                    if [ -f terraform/main.tf ]; then
+                        mv terraform/main.tf terraform/main.tf.disabled
+                    fi
+
+                    # cloudwatch.tf uitschakelen
+                    if [ -f terraform/cloudwatch.tf ]; then
+                        mv terraform/cloudwatch.tf terraform/cloudwatch.tf.disabled
+                    fi
+                '''
+            }
+        }
+    }
+}
 
