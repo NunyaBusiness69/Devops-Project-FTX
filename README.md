@@ -32,7 +32,7 @@ AWS Systems Manager (SSM): beheer zonder SSH
     ├── jenkins/
     └── notities en kanban/
 
-De substructuur van de map "minecraft-ansible" is direct overgenomen vanuit onze EC2-instance. Dit betekent dat alle bestanden op dezelfde plaats gezet zijn zoals op onze EC2 Amazon Linux. Mocht het niet duidelijk zijn waar wat zit, er is een bestand in de map "Notities en Kanban" waar de locatie van alle bestanden duidelijk genoteerd staan.
+De substructuur van de map "minecraft-ansible" is direct overgenomen vanuit onze EC2-instance. Dit betekent dat alle bestanden op dezelfde plaats gezet zijn zoals op onze EC2 Amazon Linux. Mocht het niet duidelijk zijn waar de bestanden in deze map zitten; er is een bestand in de map "Notities en Kanban" waar de locatie van elk bestand duidelijk genoteerd staat.
 
 ## Projectarchitectuur
 
