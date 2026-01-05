@@ -2,19 +2,25 @@
 
 Dit project beschrijft de opzet van een Minecraft server in de AWS-cloud, gerealiseerd met behulp van DevOps-tools en -methodieken. Het doel is om infrastructuur, configuratie en applicatiebeheer zoveel mogelijk te automatiseren.
 
-## Gebruikte technologieën
+## Gebruikte tools en software
 
-Terraform: het opzetten van de AWS infrastructuur
+- AWS Cloudshell
 
-Ansible: configuratiebeheer en het beheren van Docker containers
+- Een Amazon linux EC2 instantie (t3.micro)
 
-Docker: het draaien van de Minecraft server
+- Git
 
-Jenkins: CI/CD automatisering
+- Terraform
 
-AWS CloudWatch: monitoring
+- Ansible
 
-AWS Systems Manager (SSM): beheer zonder SSH
+- Docker
+
+- Jenkins
+
+- AWS CloudWatch
+
+- SSM
 
 ## Repository structuur
     .
