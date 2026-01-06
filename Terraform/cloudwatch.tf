@@ -53,4 +53,6 @@ resource "aws_cloudwatch_metric_alarm" "high_cpu" {
   dimensions = {
     InstanceId = aws_instance.minecraft.id
   }
+  alarm_actions = []
+}
 }
