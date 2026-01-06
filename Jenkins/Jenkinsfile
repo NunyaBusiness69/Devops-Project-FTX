@@ -1,52 +1,58 @@
 pipeline {
     agent any
 
+    environment {
+        AWS_REGION = "eu-west-1"
+    }
+
     stages {
-        stage('Enable Terraform Files') {
+
+        stage('Checkout') {
             steps {
-                sh '''
-                    echo "Terraform bestanden inschakelen"
-
-                    # main.tf inschakelen
-                    if [ -f terraform/main.tf.disabled ]; then
-                        mv terraform/main.tf.disabled terraform/main.tf
-                    fi
-
-                    # cloudwatch.tf inschakelen
-                    if [ -f terraform/cloudwatch.tf.disabled ]; then
-                        mv terraform/cloudwatch.tf.disabled terraform/cloudwatch.tf
-                    fi
-                '''
+                checkout scm
             }
         }
 
-        stage('Run Terraform') {
+        stage('Terraform Init') {
+            steps {
+                withAWS(credentials: 'aws-creds', region: "${AWS_REGION}") {
+                    sh '''
+                        cd terraform
+                        terraform init
+                    '''
+                }
+            }
+        }
+
+        stage('Terraform Validate') {
             steps {
                 sh '''
                     cd terraform
-                    terraform init
-                    terraform plan
+                    terraform validate
                 '''
             }
         }
 
-        stage('Disable Terraform Files') {
+        stage('Terraform Plan') {
             steps {
-                sh '''
-                    echo "Terraform bestanden uitschakelen"
+                withAWS(credentials: 'aws-creds', region: "${AWS_REGION}") {
+                    sh '''
+                        cd terraform
+                        terraform plan -out=tfplan
+                    '''
+                }
+            }
+        }
 
-                    # main.tf uitschakelen
-                    if [ -f terraform/main.tf ]; then
-                        mv terraform/main.tf terraform/main.tf.disabled
-                    fi
-
-                    # cloudwatch.tf uitschakelen
-                    if [ -f terraform/cloudwatch.tf ]; then
-                        mv terraform/cloudwatch.tf terraform/cloudwatch.tf.disabled
-                    fi
-                '''
+        stage('Terraform Apply') {
+            steps {
+                withAWS(credentials: 'aws-creds', region: "${AWS_REGION}") {
+                    sh '''
+                        cd terraform
+                        terraform apply -auto-approve tfplan
+                    '''
+                }
             }
         }
     }
 }
-
