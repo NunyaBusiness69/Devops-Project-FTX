@@ -23,4 +23,4 @@
         project_src: "{{ server_dir }}"
         state: present
         detached: yes
-    recreate: true
+        recreate: true
