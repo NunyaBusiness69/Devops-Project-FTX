@@ -22,5 +22,5 @@
       community.docker.docker_compose:
         project_src: "{{ server_dir }}"
         state: present
-        detachted: yes
+        detached: yes
     recreate: true
