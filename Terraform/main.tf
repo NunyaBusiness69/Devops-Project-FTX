@@ -156,3 +156,5 @@ output "minecraft_public_ip" {
   value       = aws_instance.minecraft.public_ip
 }
 
+# --------- IAM koppeling ---------
+iam_instance_profile = aws_iam_instance_profile.cloudwatch_agent_profile.name
