@@ -6,7 +6,6 @@ pipeline {
     }
 
     stages {
-
         stage('Checkout') {
             steps {
                 checkout scm
@@ -15,10 +14,10 @@ pipeline {
 
         stage('terraform Init') {
             steps {
-                withAWS(credentials: 'AWS', region: "${AWS_REGION}") {
+                withAWS(credentials: 'aws-creds', region: "${AWS_REGION}") {
                     sh '''
                         cd Terraform
-                        Terraform init
+                        terraform init
                     '''
                 }
             }
@@ -28,17 +27,17 @@ pipeline {
             steps {
                 sh '''
                     cd Terraform
-                    Terraform validate
+                    terraform validate
                 '''
             }
         }
 
         stage('terraform Plan') {
             steps {
-                withAWS(credentials: 'AWS', region: "${AWS_REGION}") {
+                withAWS(credentials: 'aws-creds', region: "${AWS_REGION}") {
                     sh '''
                         cd Terraform
-                        Terraform plan -out=tfplan
+                        terraform plan -out=tfplan
                     '''
                 }
             }
@@ -46,10 +45,10 @@ pipeline {
 
         stage('terraform Apply') {
             steps {
-                withAWS(credentials: 'AWS', region: "${AWS_REGION}") {
+                withAWS(credentials: 'aws-creds', region: "${AWS_REGION}") {
                     sh '''
                         cd Terraform
-                        Terraform apply -auto-approve tfplan
+                        terraform apply -auto-approve tfplan
                     '''
                 }
             }
