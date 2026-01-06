@@ -15,7 +15,7 @@ pipeline {
 
         stage('Terraform Init') {
             steps {
-                withAWS(credentials: 'aws-creds', region: "${AWS_REGION}") {
+                withAWS(credentials: 'AWS', region: "${AWS_REGION}") {
                     sh '''
                         cd terraform
                         terraform init
@@ -35,7 +35,7 @@ pipeline {
 
         stage('Terraform Plan') {
             steps {
-                withAWS(credentials: 'aws-creds', region: "${AWS_REGION}") {
+                withAWS(credentials: 'AWS', region: "${AWS_REGION}") {
                     sh '''
                         cd terraform
                         terraform plan -out=tfplan
@@ -46,7 +46,7 @@ pipeline {
 
         stage('Terraform Apply') {
             steps {
-                withAWS(credentials: 'aws-creds', region: "${AWS_REGION}") {
+                withAWS(credentials: 'AWS', region: "${AWS_REGION}") {
                     sh '''
                         cd terraform
                         terraform apply -auto-approve tfplan
