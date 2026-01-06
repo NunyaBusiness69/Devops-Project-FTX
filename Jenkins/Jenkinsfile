@@ -17,8 +17,8 @@ pipeline {
             steps {
                 withAWS(credentials: 'AWS', region: "${AWS_REGION}") {
                     sh '''
-                        cd terraform
-                        terraform init
+                        cd Terraform
+                        Terraform init
                     '''
                 }
             }
@@ -27,8 +27,8 @@ pipeline {
         stage('Terraform Validate') {
             steps {
                 sh '''
-                    cd terraform
-                    terraform validate
+                    cd Terraform
+                    Terraform validate
                 '''
             }
         }
@@ -37,8 +37,8 @@ pipeline {
             steps {
                 withAWS(credentials: 'AWS', region: "${AWS_REGION}") {
                     sh '''
-                        cd terraform
-                        terraform plan -out=tfplan
+                        cd Terraform
+                        Terraform plan -out=tfplan
                     '''
                 }
             }
@@ -48,8 +48,8 @@ pipeline {
             steps {
                 withAWS(credentials: 'AWS', region: "${AWS_REGION}") {
                     sh '''
-                        cd terraform
-                        terraform apply -auto-approve tfplan
+                        cd Terraform
+                        Terraform apply -auto-approve tfplan
                     '''
                 }
             }
