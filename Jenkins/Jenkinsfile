@@ -13,7 +13,7 @@ pipeline {
             }
         }
 
-        stage('Terraform Init') {
+        stage('terraform Init') {
             steps {
                 withAWS(credentials: 'AWS', region: "${AWS_REGION}") {
                     sh '''
@@ -24,7 +24,7 @@ pipeline {
             }
         }
 
-        stage('Terraform Validate') {
+        stage('terraform Validate') {
             steps {
                 sh '''
                     cd Terraform
@@ -33,7 +33,7 @@ pipeline {
             }
         }
 
-        stage('Terraform Plan') {
+        stage('terraform Plan') {
             steps {
                 withAWS(credentials: 'AWS', region: "${AWS_REGION}") {
                     sh '''
@@ -44,7 +44,7 @@ pipeline {
             }
         }
 
-        stage('Terraform Apply') {
+        stage('terraform Apply') {
             steps {
                 withAWS(credentials: 'AWS', region: "${AWS_REGION}") {
                     sh '''
